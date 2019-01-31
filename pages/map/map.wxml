@@ -1,0 +1,45 @@
+<!--pages/map/map.wxml-->
+<view class="page-body" style='height: 100%;'>
+  <view class="main-body" style='height: 100%;'>
+    <view class="search-section">
+      <input class="search-input" placeholder='搜目的地' bindinput='bindSearchInput' confirm-type='done'>
+      </input>
+      <image class="search-image" src='../images/search.png' bindtap='bindSearchDestination'/>
+    </view>
+    
+    <map
+      id="myMap"
+      style="width: 100%; height: 100%;"
+      latitude='{{latitude}}'
+      longitude='{{longitude}}'
+      markers='{{markers}}'
+      show-location='ture'
+      scale='{{mapScale}}'
+      circles='{{circles}}'
+      bindmarkertap='bindParkMarkerTap'
+      
+    ></map>
+
+  </view>
+
+
+  
+  <!--customized dialog-->
+  
+  <cover-view class="modal-mask" wx:if="{{isShowModal}}" catchtap='bindMaskTap'>
+    <cover-view class="modal-dialog">
+      <cover-view class="place-info">
+        <cover-view class="place-name" >{{placeName}}</cover-view>
+        <cover-view class="park-info">
+          <cover-image class="park-icon" src='../images/p.png'></cover-image>
+          <cover-view class="park-count">{{parkCount}}</cover-view>
+        </cover-view>
+      </cover-view>
+      <cover-view class="address">{{address}}</cover-view>
+      <cover-view class="btn-area">
+        <button class="btn" bindtap='bindNavigateTo'>导航</button>
+        <button class="btn" bindtap='bindAppoint'>预约</button>
+      </cover-view>
+    </cover-view>
+  </cover-view>
+</view>

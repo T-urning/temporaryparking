@@ -1,0 +1,12 @@
+<!--车牌输入框-->
+<view class='section'> 
+  <view class='section-input'>
+  <input class='input' placeholder=' ' maxlength='40' bindinput='bindCarNumInput' confirm-type='done'></input>
+  <image class='image-input' src='../images/camera.png' bindtap='showPictures'/>
+  </view>
+  <view class='section-info'>
+    <text class='text' bindtap='bindCarNumber'>录入车牌号</text>
+    <image class='image-info' src='../images/info.png' bindtap='bindInfoImgClick'></image>
+  </view>
+</view>
+

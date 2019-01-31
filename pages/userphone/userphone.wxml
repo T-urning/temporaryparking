@@ -1,0 +1,19 @@
+<!--pages/userphone/userphone.wxml-->
+<view class='container'>
+  <view class='mainbody'>
+    <view class='part first'> 
+      <input  class='inputphone' placeholder='请输入手机号' placeholder-class='placeholder' type='number' confirm-type='done' bindinput='bindInputPhone' >
+      </input>
+    </view>
+    <view class='part second'>
+      <input class='inputcode' placeholder='请输入验证码'  placeholder-class='placeholder' type='text' confirm-type='done' bindinput='bindInputCode'></input>
+      <button class='btn request' bindtap='bindRequesBtnClick'>获取验证码</button>
+    </view>
+    <view class='part third'>
+      <button class='btn sure' bindtap='bindSureBtnClick'>确定</button>
+    </view>
+    <view class='hinttext'>
+      使用即表示您已阅读并同意《用户使用协议》
+    </view>
+  </view>
+</view>

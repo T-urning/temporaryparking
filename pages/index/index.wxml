@@ -1,0 +1,19 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text bindtap="bindShowToast" class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <!--添加到demo页面入口展现并在其上绑定用户的点击事件-->
+  <view id="tapDemo" bindtap='bindViewDemo'>Demo页</view>
+  <!--添加到try页面入口展现并在其上绑定用户的点击事件-->
+  <view id="tapTry" bindtap='bindTry'>Try页</view>
+  <view id="scroll_view_test" bindtap='bindScrollView'>Sroll-View页</view>
+  <view id="redirectTo_test" bindtap='bindRedirectTo'>Map</view>
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+</view>

@@ -1,0 +1,54 @@
+{
+  "pages": [
+    "pages/detail/detail",
+    "pages/firsttime/firsttime",
+    "pages/map/map",
+    "pages/user/user",
+    
+    
+    "pages/userphone/userphone",
+    
+    "pages/carnumber/carnumber",
+    "pages/index/index",
+    "pages/home/home"
+    
+    
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#eeeeee",
+    "enablePullDownRefresh": false
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/map/map",
+        "iconPath": "pages/images/icon_API.png",
+        "selectedIconPath": "pages/images/icon_API_HL.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/detail/detail",
+        "text": "详情"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "text": "用户"
+      }
+      
+    ],
+    "backgroundColor": "#ffffff",
+    "color": "#dddddd",
+    "selectedColor": "#3cc51f",
+    "borderStyle": "black"
+  },
+  "networkTimeout": {
+    "request": 30000,
+    "connectSocket": 30000,
+    "uploadFile": 30000,
+    "downloadFile": 30000
+  }
+}

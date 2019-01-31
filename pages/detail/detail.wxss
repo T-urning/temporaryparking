@@ -1,0 +1,51 @@
+/* pages/try/try.wxss */
+page{
+  height: 100%;
+
+}
+.container{
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+  
+}
+
+.part{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 380rpx;
+  /* height: 300rpx; */
+  width: 700rpx;
+  border-radius: 15rpx;
+  border-style: outset;
+  border-width: 1rpx;
+}
+.minicontainer{
+  margin: 10rpx;
+  /* background-color: brown; */
+}
+.confirm{
+  background-color: #fff;
+
+}
+.txt{
+  font-size: 12pt;
+}
+.carnumbertxt{
+  font-weight: bold;
+  font-size: 14pt;
+}
+.bottom{
+  display: flex;
+  justify-content: flex-end;
+}
+.detail{
+  /* background-color: blue; */
+
+}

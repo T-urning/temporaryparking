@@ -1,0 +1,50 @@
+<!--pages/try/try.wxml-->
+<view  class='container'>
+  <!--当用户此时处于停车事件时-->
+  <block wx:if="{{isInATranscation}}">
+    <map id='miniMap'
+        latitude='{{latitude}}'
+        longitude='{{longitude}}'
+        markers='{{markers}}'
+        show-location='{{false}}'
+        scale='{{15}}'
+        style='height:300rpx;width:100%'
+      ></map>
+    <!--当用户还未进行车辆认领时-->
+    <view wx:if="{{isConfirmed}}" class='part detail'>
+      <view class='minicontainer'>
+        <view class='info' style='display: flex; align-items: center; justify-content:space-between'>
+          <text style='font-size: 14pt; width: 450rpx;'>{{address}}-{{parkId}}号车位</text> 
+          <text style='font-size: 8pt; color: #888888' bindtap='haveATest'>已停车 {{time}}</text>
+        </view>
+        <view class='warntxt' style='font-size:10pt;border-width:1rpx; margin:30rpx 10rpx 20rpx'>
+          收费规则：十分钟内免费，十分钟过后1元/3分钟，当闸机检测到车牌时开始计时，请把握好您的时间。
+        </view>
+      </view>
+        
+    </view>
+    <!--当用户已认领车辆时-->
+    <view wx:else class='part confirm'>
+      <view class='minicontainer'>
+        <view class='upper'>
+          <text class='txt'>是否认领车牌为</text>
+          <text class='carnumbertxt'>{{carNumber}}</text>
+          <text class='txt'>的车辆</text>
+        </view>
+        
+        <image src='../images/carNumber.jpg' style='height:200rpx;width:100%; margin-top:20rpx;'>
+        </image>
+
+        <view class='bottom' style='font-size: 12pt; color: #09bb07; margin: 16rpx 0rpx;' bindtap='bindConfirmCar'>
+        确认认领
+        </view>
+      </view>
+      
+    </view>
+
+    <view wx:if="{{!isConfirmed}}" style='position: absolute;top: 850rpx; font-size:8pt; color:#888888'>注：若逾期未进行车辆认领，闸机将发生警报。请于停车后三分钟内认领。
+    </view>
+  </block>
+  <!--若当前用户不处于停车事件中时-->
+  <view wx:else style='position:absolute; top:400rpx; font-size:18pt; justfy-self: center;'>当前无停车信息</view>
+</view>

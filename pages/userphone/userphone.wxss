@@ -1,0 +1,68 @@
+/* pages/userphone/userphone.wxss */
+page{
+  height: 100%;
+  width: 100%;
+  
+}
+.container{
+
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  
+  
+}
+.mainbody{
+  position: absolute;
+  top: 20%;
+  left: 20rpx;
+  right: 20rpx;
+  
+  
+
+}
+.part{
+  margin: 30rpx 20rpx;
+  
+}
+.second{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+
+}
+.third{
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20rpx;
+}
+.btn{
+  color: #fff;
+  background: #09bb07;
+}
+.request{
+  font-size: 12pt;
+  margin: 0rpx 0rpx 0rpx 0rpx;
+
+}
+.sure{
+  width: 80%;
+  font-size: 16pt;
+}
+
+input{
+  border-bottom: 1rpx solid #888888;
+
+}
+.hinttext{
+  
+  font-size: 8pt;
+  display: flex;
+  justify-content: center;
+}
+.placeholder{
+  font-size: 12pt;
+}

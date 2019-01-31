@@ -1,0 +1,3 @@
+<!--pages/firsttime/firsttime.wxml-->
+<button open-type='getUserInfo' bindtap='bindGetUserInfo'>授权</button>
+<button bindtap='bindNavigateTo'>跳转</button>
