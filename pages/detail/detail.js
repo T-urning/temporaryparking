@@ -4,10 +4,12 @@
  */
 var app = getApp()
 var util = require('../../utils/util.js')
-var requestParkStateUrl = ""
-var parkId = ""
+var requestParkStateUrl = "http://2z330q6958.imwork.net/car/carmsg"
+//var parkId = ""//这是二维码自带的参数
 var isCameFromCode = true//测试，模拟判断用户是否通过扫描二维码进入小程序
-var isParkOccupied = true//测试，模拟用户扫描二维码时，车位上有车辆停放。无车辆停放时应无信息显示。
+var isParkOccupied = false//测试，模拟用户扫描二维码时，车位上有车辆停放。无车辆停放时应无信息显示。
+var parkId = 1001 //这是二维码自带的参数
+//var seconds = 0 //模拟，这里需要服务器的记录的时间
 Page({
 
   /**
@@ -30,10 +32,10 @@ Page({
       width: 50,
       height: 50
     }],
-    carNumber: "苏E 05EV8",
-    address: "东华理工大学-行政楼",
-    parkId: 2,
-
+    carNumber: "",
+    address: "",
+    parkId: parkId,
+    carPictureUrl: "",
     //
     time: "",
     seconds: 0
@@ -46,20 +48,49 @@ Page({
   onLoad: function (options) {
     //wx.clearStorage()
     //this.data.time = '01:11:12'
-    
+    var that = this
 
     if (isCameFromCode){//如果用户扫描进入
-     // var isParkOccupied = util.sendRequest(requestParkStateUrl, parkId)//发送请求，判断是否有车辆停靠
-      if (isParkOccupied){//如果车位有车辆停靠
-        this.setData({
-          isInATranscation: true
-        })
-        this.ifCameFromCodeAndParkWasOccupied()//测试，模拟用户通过二维码进入小程序且停车位有车辆停放，则执行
-      }else{  //否则，转至首页
-        wx.switchTab({
-          url: '../map/map',
-        })
-      }     
+      wx.request({
+        url: requestParkStateUrl,
+        data:{
+          sid: parkId
+        },
+        method: "GET",
+        header: { 
+          'conten-type': 'application/json'
+        },
+        success: function(res){
+          console.log(res)
+          if(res.data.status == 200){
+            that.setData({
+              isInATranscation: true,
+              carNumber: res.data.data.carNumber,
+              carPictureUrl: res.data.data.carPicture,
+              seconds: parseInt(res.data.data.stopTime / 1000),
+              address: res.data.data.sname
+
+            })
+            that.ifCameFromCodeAndParkWasOccupied()//测试，模拟用户通过二维码进入小程序且停车位有车辆停放，则执行
+          } else {  //否则，转至首页
+            wx.switchTab({
+              url: '../map/map',
+            })
+          }     
+        }
+      })
+      //var isParkOccupied = util.sendRequest(requestParkStateUrl, {sid:1002})//发送请求，判断是否有车辆停靠
+      //debugger
+      // if (isParkOccupied){//如果车位有车辆停靠
+      //   this.setData({
+      //     isInATranscation: true
+      //   })
+      //   this.ifCameFromCodeAndParkWasOccupied()//测试，模拟用户通过二维码进入小程序且停车位有车辆停放，则执行
+      // }else{  //否则，转至首页
+      //   wx.switchTab({
+      //     url: '../map/map',
+      //   })
+      // }     
     } else {   //否则，该页面显示无信息
       this.setData({
         isInATranscation: false
@@ -173,8 +204,8 @@ Page({
   ifCameFromCodeAndParkWasOccupied: function(){
     //建立websocket连接
     wx.setStorageSync("parkingState", 1)
-    var seconds = 1200 //模拟，这里需要服务器的记录的时间
-    this.data.seconds = seconds
+    //console.log(this.data.seconds)
+    //this.data.seconds = seconds
     util.timing(this)
 
   },

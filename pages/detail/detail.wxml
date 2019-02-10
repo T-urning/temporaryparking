@@ -10,7 +10,8 @@
         scale='{{15}}'
         style='height:300rpx;width:100%'
       ></map>
-    <!--当用户还未进行车辆认领时-->
+    <!--当用户已认领车辆时-->
+    
     <view wx:if="{{isConfirmed}}" class='part detail'>
       <view class='minicontainer'>
         <view class='info' style='display: flex; align-items: center; justify-content:space-between'>
@@ -23,7 +24,8 @@
       </view>
         
     </view>
-    <!--当用户已认领车辆时-->
+   
+    <!--当用户还未进行车辆认领时-->
     <view wx:else class='part confirm'>
       <view class='minicontainer'>
         <view class='upper'>
@@ -32,7 +34,7 @@
           <text class='txt'>的车辆</text>
         </view>
         
-        <image src='../images/carNumber.jpg' style='height:200rpx;width:100%; margin-top:20rpx;'>
+        <image src='{{carPictureUrl}}' style='height:200rpx;width:100%; margin-top:20rpx;'>
         </image>
 
         <view class='bottom' style='font-size: 12pt; color: #09bb07; margin: 16rpx 0rpx;' bindtap='bindConfirmCar'>

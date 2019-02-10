@@ -1,0 +1,46 @@
+/* wxss */ .search-box {
+  background-color: #142341;
+  overflow: hidden;
+  padding: 3%;
+} .search-box .icon {
+  width: 80%;
+  padding-left: 2%;
+  background-color: #fff;
+  float: left;
+  border-radius: 1rem;
+} .search-box .icon image {
+  width: 1rem;
+  height: 1rem;
+  display: block;
+  margin: 0.5rem 0;
+  float: left;
+} .search-box input {
+  display: block;
+  font-size: 0.8rem;
+  height: 2rem;
+  line-height: 2rem;
+  float: left;
+  margin-left: 5%;
+} .search-box text {
+  width: 18%;
+  float: left;
+  color: #fff;
+  line-height: 2rem;
+  text-align: center;
+  font-size: 0.8rem;
+} .options {
+  width: 94%;
+  margin: 3%;
+  font-size: 0.8rem;
+  color: #999;
+} .options text:last-child {
+  color: #1268bb;
+  float: right;
+} .options .item {
+  padding: 0.2rem 0.5rem;
+  background-color: #eee;
+  float: left !important;
+  color: #565656 !important;
+  border-radius: 0.1rem;
+  margin: 3%;
+}

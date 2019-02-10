@@ -1,0 +1,20 @@
+<!-- wxml -->
+<view class="search-box">
+  <view class='icon'>
+    <image src='../images/search.png' mode='widthFix'></image>
+    <!-- 使用bindinput属性绑定getSearchKey函数获取input组件中的值-->
+    <!-- 使用bindblur属性绑定routeToSearchResPage函数处理input失去焦点事件-->
+    <input placeholder='搜索你想购买的商品' bindinput='getSearchKey' bindblur='routeToSearchResPage' bindfocus='getFocus'></input>
+  </view>
+  <text>取消</text>
+</view>
+<view class='options'>
+  <text>历史搜索记录</text>
+  <text bindtap='clearHistory'>清空</text>
+</view>
+<view class='options'>
+<!-- 遍历 history 数组 -->
+  <text class='item' wx:for='{{history}}' data-index='{{index}}' bindtap='routeToSearchResPage'>{{item}}</text>
+</view>
+
+

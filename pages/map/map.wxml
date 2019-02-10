@@ -2,7 +2,7 @@
 <view class="page-body" style='height: 100%;'>
   <view class="main-body" style='height: 100%;'>
     <view class="search-section">
-      <input class="search-input" placeholder='搜目的地' bindinput='bindSearchInput' confirm-type='done'>
+      <input class="search-input" placeholder='搜目的地' bindinput='bindSearchInput' confirm-type='done' bindfocus='bindSearchFocus'>
       </input>
       <image class="search-image" src='../images/search.png' bindtap='bindSearchDestination'/>
     </view>

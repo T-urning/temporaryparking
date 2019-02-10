@@ -194,7 +194,11 @@ Page({
   bindSearchInput: function(e){
     this.data.searchInputVal = e.detail.value
   },
-
+  bindSearchFocus: function(e){
+    wx.navigateTo({
+      url: '../searchpage/searchpage',
+    })
+  },
   //绑定图标点击事件
   bindParkMarkerTap: function(e){
     //先判断点击的是目的地还是某个停车位的图标
@@ -224,9 +228,7 @@ Page({
     }else{  //当被点击的是某一停车位图标是执行
       tempInfo = this.data.parksInfo
       console.log("you touched a park whose id is" + touchedIconId)
-      wx.navigateTo({
-        url: '../try/try',
-      })
+      
       
     }
     

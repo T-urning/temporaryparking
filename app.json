@@ -1,13 +1,13 @@
 {
   "pages": [
     "pages/detail/detail",
-    "pages/firsttime/firsttime",
     "pages/map/map",
+    
+    "pages/firsttime/firsttime",
+    
     "pages/user/user",
-    
-    
+    "pages/searchpage/searchpage",
     "pages/userphone/userphone",
-    
     "pages/carnumber/carnumber",
     "pages/index/index",
     "pages/home/home"

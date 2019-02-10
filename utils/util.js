@@ -32,7 +32,8 @@ function timing(that){
       duration: 3000
 
     })
-  } else if(seconds == 600){
+  } 
+  if(seconds == 600){
     wx.showToast({
       title: '您已停车10分钟，现在开始收费。',
       icon: 'none',
@@ -90,6 +91,7 @@ function sendRequest(url, data){
       'conten-type': 'application/json'
     },
     success: function (res) {
+      console.log(res)
       return res
     },
     fail: function (res) {
