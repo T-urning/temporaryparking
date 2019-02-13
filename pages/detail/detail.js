@@ -38,7 +38,8 @@ Page({
     carPictureUrl: "",
     //
     time: "",
-    seconds: 0
+    seconds: 0,
+    socketOpen: false
   },
 
 
@@ -110,7 +111,6 @@ Page({
       }
       
     }
-    
 
   },
 
@@ -203,9 +203,30 @@ Page({
    */
   ifCameFromCodeAndParkWasOccupied: function(){
     //建立websocket连接
+    wx.connectSocket({
+      url: '',
+      header:{
+        'content-type': 'Application/json'
+      },
+      method:"GET"
+    });
+    wx.onSocketOpen(function(res){
+      console.log("websocket连接已打开!")
+    });
+    wx.onSocketError(function(res){
+      console.log("websocket连接失败！")
+    });
+    wx.onSocketMessage(function(res){
+      console.log("socketmessage:"+res)
+    });
+    wx.onSocketClose(function(res){
+      console.log("socketclose!")
+    });
+    //存储停车状态parkingState
     wx.setStorageSync("parkingState", 1)
     //console.log(this.data.seconds)
     //this.data.seconds = seconds
+    //小程序开始同步计时并显示
     util.timing(this)
 
   },

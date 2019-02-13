@@ -16,7 +16,7 @@
     <view class='useroperation'>
       <image class='operationicon' src='../images/icon_component_HL.png'></image>
       <view class='operationitem'>
-        <text class='text'>车牌管理</text>
+        <text class='text'>停车记录</text>
         <image class='arrowicon' src='../images/arrowright.png'></image>
       </view>
     </view>

@@ -1,7 +1,8 @@
 {
   "pages": [
-    "pages/detail/detail",
     "pages/map/map",
+    "pages/detail/detail",
+   
     
     "pages/firsttime/firsttime",
     

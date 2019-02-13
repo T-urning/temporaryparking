@@ -3,10 +3,10 @@
   <view class='icon'>
     <image src='../images/search.png' mode='widthFix'></image>
     <!-- 使用bindinput属性绑定getSearchKey函数获取input组件中的值-->
-    <!-- 使用bindblur属性绑定routeToSearchResPage函数处理input失去焦点事件-->
-    <input placeholder='搜索你想购买的商品' bindinput='getSearchKey' bindblur='routeToSearchResPage' bindfocus='getFocus'></input>
+    
+    <input placeholder='搜索目的地' bindinput='bindSearchInput'bindfocus='getFocus'></input>
   </view>
-  <text>取消</text>
+  <text bindtap='routeToSearchResPage'>确定</text>
 </view>
 <view class='options'>
   <text>历史搜索记录</text>

@@ -75,6 +75,7 @@ Page({
 
     //customized dialog
     isShowModal: false,
+    isShowHistory: false,
     placeName: "东华理工大学",
     parkCount: 8,
     address: "江西省南昌市广兰大道418号东华理工大学"
@@ -88,7 +89,7 @@ Page({
   * 生命周期函数--监听页面加载
   */
   onLoad: function (options) {
-    
+    console.log("看看有没有地名"+options)
   },
 
 
@@ -99,7 +100,9 @@ Page({
     this.mapContext.moveToLocation()
     //console.log(this.data.parksInfo.length)
     //debugger
-    
+    this.setData({
+      isShowHistory: true
+    })
     
     
   },
@@ -192,12 +195,12 @@ Page({
   },
   //绑定输入框内容变动事件
   bindSearchInput: function(e){
-    this.data.searchInputVal = e.detail.value
+    //this.data.searchInputVal = e.detail.value
   },
   bindSearchFocus: function(e){
-    wx.navigateTo({
-      url: '../searchpage/searchpage',
-    })
+    // wx.navigateTo({
+    //   url: '../searchpage/searchpage',
+    // })
   },
   //绑定图标点击事件
   bindParkMarkerTap: function(e){

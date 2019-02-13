@@ -2,11 +2,10 @@
 <view class="page-body" style='height: 100%;'>
   <view class="main-body" style='height: 100%;'>
     <view class="search-section">
-      <input class="search-input" placeholder='搜目的地' bindinput='bindSearchInput' confirm-type='done' bindfocus='bindSearchFocus'>
+      <input class="search-input" placeholder='搜目的地' bindfocus='bindSearchFocus' confirm-type='done' >
       </input>
       <image class="search-image" src='../images/search.png' bindtap='bindSearchDestination'/>
     </view>
-    
     <map
       id="myMap"
       style="width: 100%; height: 100%;"
@@ -20,10 +19,9 @@
       
     ></map>
 
+   
   </view>
 
-
-  
   <!--customized dialog-->
   
   <cover-view class="modal-mask" wx:if="{{isShowModal}}" catchtap='bindMaskTap'>

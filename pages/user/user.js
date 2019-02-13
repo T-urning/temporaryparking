@@ -111,9 +111,23 @@ Page({
   onUnload: function () {
 
   },
+  /**
+   * 点击手机号时触发的函数。可以更改绑定的手机号。
+   */
   binduserPhoneNumber: function(){
     var userPhone = wx.getStorageSync('userPhone')
     if(userPhone){
+      wx.showModal({
+        title: '提醒',
+        content: '是否更改所绑定的手机号？',
+        success(res){
+          if(res.confirm){
+            wx.navigateTo({
+              url: '../userphone/userphone',
+            })
+          } 
+        }
+      })
       return
     } 
     wx.navigateTo({

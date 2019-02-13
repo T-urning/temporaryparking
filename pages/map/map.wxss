@@ -37,6 +37,8 @@ page{
   position: fixed;
   top: 0;
   left: 0;
+  background: rebeccapurple;
+  
   /* z-index: 1;  */
 }
 .modal-dialog{
