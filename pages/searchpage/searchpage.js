@@ -23,15 +23,17 @@ Page({
     let _this = this; 
     let _searchKey = this.data.searchKey; 
     if (!this.data.searchKey) { 
-      
       return 
     } 
     wx.navigateBack({
       delta:1 
     })
-   istory = wx.getStorageSync("history") || [];
+    history = wx.getStorageSync("history") || [];
     history.push(this.data.searchKey) 
     wx.setStorageSync("history", history); 
+    
+    //存搜索关键词
+    wx.setStorageSync("placeName", this.data.searchKey)
 
   }, //每次显示钩子函数都去读一次本地storage
 

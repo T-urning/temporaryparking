@@ -75,7 +75,6 @@ Page({
 
     //customized dialog
     isShowModal: false,
-    isShowHistory: false,
     placeName: "东华理工大学",
     parkCount: 8,
     address: "江西省南昌市广兰大道418号东华理工大学"
@@ -90,19 +89,25 @@ Page({
   */
   onLoad: function (options) {
     console.log("看看有没有地名"+options)
-  },
-
-
-
-  onReady: function (options) {
-    var that = this
     this.mapContext = wx.createMapContext("myMap")
     this.mapContext.moveToLocation()
+  }, 
+    
+
+  onShow: function(){
+    //当用户搜索地名后，在地图上显示匹配的所有地理对象
+    var searchedPlaceName = wx.getStorageSync("placeName")
+    if(searchedPlaceName != "" && searchedPlaceName != null){
+      this.searchDestination()
+
+    }
+    wx.setStorageSync("placeName", "")
+  },
+  onReady: function (options) {
+  
+    
     //console.log(this.data.parksInfo.length)
     //debugger
-    this.setData({
-      isShowHistory: true
-    })
     
     
   },
@@ -193,14 +198,29 @@ Page({
     }
 
   },
+  searchDestination: function(){
+    destinationOrPark = 0 //每次搜索后，被点击的图标一定是目的地的图标，此时停车图标还未显示
+    var tempMarkers = this.putMarkersOnTheMap(this.data.destinationsInfo, destinationIconUrl)[0]
+    var tempPoints = this.putMarkersOnTheMap(this.data.destinationsInfo, destinationIconUrl)[1]
+    console.log(tempMarkers)
+    console.log(tempPoints)
+    //把所有坐标都显示在同一视野中
+    this.mapIncludePoints(tempPoints)
+    if (this.data.searchInputVal == "") {
+      this.setData({
+        //mapScale: 18,
+        markers: tempMarkers
+      })
+    }
+  },
   //绑定输入框内容变动事件
   bindSearchInput: function(e){
     //this.data.searchInputVal = e.detail.value
   },
   bindSearchFocus: function(e){
-    // wx.navigateTo({
-    //   url: '../searchpage/searchpage',
-    // })
+    wx.navigateTo({
+      url: '../searchpage/searchpage',
+    })
   },
   //绑定图标点击事件
   bindParkMarkerTap: function(e){
@@ -249,3 +269,4 @@ Page({
 
  
 })
+
