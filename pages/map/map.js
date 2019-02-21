@@ -40,7 +40,7 @@ Page({
       longitude: 115.828128,
       parksInfo: parksInfo
     },{
-      id: 3,
+      id: 3, 
       name: "东华理工大学地学楼",
       latitude: 28.720089, 
       longitude: 115.824995,

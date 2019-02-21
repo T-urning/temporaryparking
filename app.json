@@ -1,19 +1,16 @@
 {
   "pages": [
-    "pages/map/map",
     "pages/detail/detail",
-   
+    "pages/map/map",
     
     "pages/firsttime/firsttime",
-    
     "pages/user/user",
     "pages/searchpage/searchpage",
     "pages/userphone/userphone",
     "pages/carnumber/carnumber",
     "pages/index/index",
-    "pages/home/home"
-    
-    
+    "pages/home/home",
+    "pages/parkinglogs/parkinglogs"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -39,7 +36,6 @@
         "pagePath": "pages/user/user",
         "text": "用户"
       }
-      
     ],
     "backgroundColor": "#ffffff",
     "color": "#dddddd",

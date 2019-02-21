@@ -147,6 +147,12 @@ Page({
       app.globalData.userInfo = userInfo
       //console.log("sfafsggagg")
     }
+  },
+
+  navigateToParkingLogsPage: function(e){
+    wx.navigateTo({
+      url: '../parkinglogs/parkinglogs',
+    })
   }
  
 })

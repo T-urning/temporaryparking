@@ -204,7 +204,11 @@ Page({
   ifCameFromCodeAndParkWasOccupied: function(){
     //建立websocket连接
     wx.connectSocket({
-      url: '',
+      url: "ws://2z330q6958.imwork.net/websocket/1/2",
+
+      // data: {
+      //   id: 1001
+      // },
       header:{
         'content-type': 'Application/json'
       },
@@ -217,10 +221,14 @@ Page({
       console.log("websocket连接失败！")
     });
     wx.onSocketMessage(function(res){
-      console.log("socketmessage:"+res)
+      console.log("socketmessage:"+res.data)
+      if(res.data.type == 0){
+        this.parkingWasOver()
+      }
+      
     });
     wx.onSocketClose(function(res){
-      console.log("socketclose!")
+      console.log("socketclosed!")
     });
     //存储停车状态parkingState
     wx.setStorageSync("parkingState", 1)
@@ -237,6 +245,8 @@ Page({
    * 还需要通知用户他离开的时间，以及停车记录的时间，是否要扣费，扣多少。
    */
   parkingWasOver: function(){
+    //关闭websocket
+    wx.closeSocket()
     wx.removeStorageSync('parkingState')
     wx.removeStorageSync('timeUnrecordedStart')
     //接下来是通知操作

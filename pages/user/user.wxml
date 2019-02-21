@@ -13,7 +13,7 @@
   </view>
   <!--各项页面引导栏-->
   <view class='usermanagement'>
-    <view class='useroperation'>
+    <view class='useroperation' bindtap='navigateToParkingLogsPage'>
       <image class='operationicon' src='../images/icon_component_HL.png'></image>
       <view class='operationitem'>
         <text class='text'>停车记录</text>
